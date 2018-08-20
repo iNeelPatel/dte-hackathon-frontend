@@ -6,7 +6,7 @@ import LayoutComponent from "../components/layout";
 
 class Layout extends Component {
   componentWillMount() {
-    document.title = "PnM | Dashboard";
+    document.title = "Dashboard";
   }
 
   render() {

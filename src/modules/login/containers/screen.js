@@ -23,6 +23,7 @@ class LoginScreen extends Component {
   }
 
   handleLogin(e) {
+    console.log("HERE");
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {

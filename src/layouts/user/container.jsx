@@ -14,51 +14,6 @@ class UserLayout extends Component {
     this.logout = this.logout.bind(this);
   }
 
-  componentWillMount() {
-    if (!this.currentUser) {
-      this.props.dispatch(routerRedux.push({ pathname: "/" }));
-    } else {
-      const roleQuery = new Parse.Query(Parse.Role);
-      roleQuery.equalTo("users", this.currentUser);
-      roleQuery
-        .find()
-        .then(roles => {
-          if (roles.some(role => role.get("name") === "admin")) {
-            this.props.dispatch({
-              type: "user/addRoles",
-              payload: { roles }
-            });
-          } else {
-            message.error("User is not an admin.");
-            Parse.User.logOut()
-              .then(() => {
-                console.log("here");
-                this.props.dispatch(
-                  routerRedux.push({
-                    pathname: "/"
-                  })
-                );
-              })
-              .catch(error => message.error(error.message));
-          }
-        })
-        .catch(error => {
-          console.log(error);
-          message.error(error.message);
-          Parse.User.logOut()
-            .then(() => {
-              console.log("here");
-              this.props.dispatch(
-                routerRedux.push({
-                  pathname: "/"
-                })
-              );
-            })
-            .catch(error => message.error(error.message));
-        });
-    }
-  }
-
   logout(e) {
     e.preventDefault();
     Parse.User.logOut();
