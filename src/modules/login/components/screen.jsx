@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Row, Col, Form, Icon, Input, Button } from "antd";
+import logo from "../../../img/dte.png";
+import "antd/dist/antd.css";
 
-import styles from "../style.css";
+import styles from "./login.css";
 
 const rules = {
   password: {
@@ -26,8 +28,8 @@ const LoginScreenComponent = props => {
       <Col span={10}>
         <Row align="middle" justify="space-around" type="flex">
           <Col span={10}>
-            <div className={styles.logo}>
-              <img src="/assets/logo-long-format.svg" alt="logo" />
+            <div className="logo-div">
+              <img src={logo} alt="logo" className="dte-logo" />
             </div>
           </Col>
         </Row>
