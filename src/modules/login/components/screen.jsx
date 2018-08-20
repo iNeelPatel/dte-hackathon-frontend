@@ -24,7 +24,12 @@ const LoginScreenComponent = props => {
   const passwordError =
     props.isFieldTouched("password") && props.getFieldError("password");
   return (
-    <Row align="middle" justify="space-around" type="flex">
+    <Row
+      align="middle"
+      justify="space-around"
+      type="flex"
+      className="login-page"
+    >
       <Col span={10}>
         <Row align="middle" justify="space-around" type="flex">
           <Col span={10}>
