@@ -3,9 +3,6 @@ import { Menu } from "antd";
 import "./header.css";
 import "antd/dist/antd.css";
 
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
-
 const HeaderNav = () => {
   return (
     <Menu onClick={this.handleClick} mode="horizontal">

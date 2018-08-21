@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "dva";
 import { routerRedux } from "dva/router";
 import Parse from "parse";
-import { message } from "antd";
 
 import UserLayoutComponent from "./component";
 

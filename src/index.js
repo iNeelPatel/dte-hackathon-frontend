@@ -1,6 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom";
-// import Routepath from "./route/route";
 import DvaConfig from "./config/DvaConfig";
 
 import registerServiceWorker from "./registerServiceWorker";
