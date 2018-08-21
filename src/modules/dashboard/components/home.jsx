@@ -2,9 +2,6 @@ import React from "react";
 import { Breadcrumb, Icon, Button } from "antd";
 import "antd/dist/antd.css";
 
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
-
 const OrderFactoryComponent = props => (
   <div>
     <Breadcrumb>
