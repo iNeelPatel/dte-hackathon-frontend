@@ -4,9 +4,14 @@ import "./header.css";
 import "antd/dist/antd.css";
 import MenuItem from "antd/lib/menu/MenuItem";
 
-const HeaderNav = () => {
+const HeaderNav = props => {
+  console.log(props);
   return (
-    <Menu onClick={this.handleClick} mode="horizontal">
+    <Menu
+      onClick={props.handleNavigate}
+      mode="horizontal"
+      selectedKeys={[props.selectedRoute]}
+    >
       <MenuItem>
         <img src="/assets/dte.png" alt="DTE Logo" className="dte-logo-nav" />
       </MenuItem>
