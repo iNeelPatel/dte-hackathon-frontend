@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 // import Routepath from "./route/route";
 import DvaConfig from "./config/DvaConfig";
 

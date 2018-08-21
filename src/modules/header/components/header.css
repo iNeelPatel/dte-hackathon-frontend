@@ -1,0 +1,15 @@
+.navLogo {
+    width: 50px;
+    margin: 10px;
+}
+
+.dte-logo-nav {
+    width: 50px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.nav {
+    display: initial;
+    float: right;
+}

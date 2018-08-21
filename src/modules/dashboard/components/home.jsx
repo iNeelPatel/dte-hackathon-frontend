@@ -1,33 +1,28 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Menu, Breadcrumb, Icon } from "antd";
-import "./dashboard.css";
+import { Menu, Breadcrumb, Icon, Button } from "antd";
+import HeaderNav from "../../header/components/header";
 import "antd/dist/antd.css";
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
 class OrderFactoryComponent extends React.Component {
-  state = {
-    current: "mail"
-  };
-  handleClick = e => {
-    console.log("click ", e);
-    this.setState({
-      current: e.key
-    });
-  };
   render() {
     return (
-      <Menu
-        onClick={this.handleClick}
-        selectedKeys={[this.state.current]}
-        mode="horizontal"
-      >
-        <Menu.Item>
-          <img src="/assets/dte.png" alt="logo" className="navLogo" />
-        </Menu.Item>
-      </Menu>
+      <div>
+        <Breadcrumb>
+          <Breadcrumb.Item href="/user/dashboard">
+            <Icon type="home" />
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>
+            <Icon type="user" />
+            <span>Dashboard</span>
+            <br />
+            <Button type="danger">Logout</Button>
+          </Breadcrumb.Item>
+        </Breadcrumb>
+      </div>
     );
   }
 }

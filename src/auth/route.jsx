@@ -13,7 +13,7 @@
 // export default Routepath;
 
 import React from "react";
-import { Route, Switch } from "dva/router";
+import { Route } from "dva/router";
 
 import LoginForm from "./container/login";
 
