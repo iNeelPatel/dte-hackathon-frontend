@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "dva";
+import { routerRedux } from "dva/router";
+import { message } from "antd";
 import Parse from "parse";
 
 import DashboardHomeComponent from "../components/home";
@@ -9,11 +11,20 @@ class DashboardHomeContainer extends Component {
     super(props);
 
     this.state = {};
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  handleLogout() {
+    Parse.User.logOut()
+      .then(() => {
+        this.props.dispatch(routerRedux.push({ pathname: "/" }));
+      })
+      .catch(error => message.error(error.message));
   }
 
   render() {
     console.log("here");
-    return <DashboardHomeComponent />;
+    return <DashboardHomeComponent handleLogout={this.handleLogout} />;
   }
 }
 
