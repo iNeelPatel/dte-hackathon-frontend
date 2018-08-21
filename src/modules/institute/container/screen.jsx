@@ -1,39 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "dva";
-import { routerRedux } from "dva/router";
-import { message } from "antd";
-import Parse from "parse";
 
-import DashboardHomeComponent from "../components/home";
+import InstituteComponet from "../components/screen";
 
-class DashboardHomeContainer extends Component {
+class InstituteContainer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {};
-    this.handleLogout = this.handleLogout.bind(this);
   }
-
-  handleLogout() {
-    Parse.User.logOut()
-      .then(() => {
-        this.props.dispatch(routerRedux.push({ pathname: "/" }));
-      })
-      .catch(error => message.error(error.message));
-  }
-
   render() {
     console.log("here");
-    return <DashboardHomeComponent handleLogout={this.handleLogout} />;
+    return <InstituteComponet />;
   }
 }
 
-DashboardHomeContainer.propTypes = {};
-
 const mapStateToProps = () => ({});
 
-const DashboardHomeContainerWithState = connect(mapStateToProps)(
-  DashboardHomeContainer
+const InstituteContainerWithState = connect(mapStateToProps)(
+  InstituteContainer
 );
 
-export default DashboardHomeContainerWithState;
+export default InstituteContainerWithState;

@@ -1,5 +1,6 @@
 .ant-layout {
-  background: #fcfcfc;
+  background: #f2f2f2;
+  height: 100vh;
 }
 
 .userLayout {
@@ -32,4 +33,8 @@
 
 .header .user {
   float: right;
+}
+
+.mr-15 {
+  padding: 25px 15px;
 }

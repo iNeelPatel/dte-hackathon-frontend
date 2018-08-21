@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "ant-design-pro": "^1.4.4",
     "antd": "^3.8.2",
     "dotenv": "^6.0.0",
     "dva": "^2.4.0",
