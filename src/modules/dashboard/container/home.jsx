@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "dva";
-import Parse from "parse";
 
 import DashboardHomeComponent from "../components/home";
 

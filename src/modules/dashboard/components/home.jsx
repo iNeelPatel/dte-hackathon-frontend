@@ -1,11 +1,6 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Menu, Breadcrumb, Icon, Button } from "antd";
-import HeaderNav from "../../header/components/header";
+import React from "react";
+import { Breadcrumb, Icon, Button } from "antd";
 import "antd/dist/antd.css";
-
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 
 class OrderFactoryComponent extends React.Component {
   render() {
