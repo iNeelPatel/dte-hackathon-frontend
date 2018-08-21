@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Form, Icon, Input, Button } from "antd";
-
+import "antd/dist/antd.css";
 import styles from "./login.css";
 
 const rules = {
@@ -21,12 +21,17 @@ const LoginScreenComponent = props => {
   const passwordError =
     props.isFieldTouched("password") && props.getFieldError("password");
   return (
-    <Row align="middle" justify="space-around" type="flex">
+    <Row
+      align="middle"
+      justify="space-around"
+      type="flex"
+      className="login-form-layout"
+    >
       <Col span={10}>
         <Row align="middle" justify="space-around" type="flex">
-          <Col span={10}>
+          <Col span={10} type="flex" justify="space-around" align="middle">
             <div className={styles.logo}>
-              <img src="/assets/dte.png" alt="logo" />
+              <img src="/assets/dte.png" alt="logo" className="dte-logo" />
             </div>
           </Col>
         </Row>

@@ -1,19 +1,35 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Layout, Row, Col, Button } from "antd";
+import { Menu, Breadcrumb, Icon } from "antd";
+import "./dashboard.css";
+import "antd/dist/antd.css";
 
-const OrderFactoryComponent = props => {
-  return (
-    <Layout>
-      <Layout.Content>
-        <Row gutter={20}>
-          <Col span={6}>
-            <p>Dashboard</p>
-          </Col>
-        </Row>
-      </Layout.Content>
-    </Layout>
-  );
-};
+const SubMenu = Menu.SubMenu;
+const MenuItemGroup = Menu.ItemGroup;
+
+class OrderFactoryComponent extends React.Component {
+  state = {
+    current: "mail"
+  };
+  handleClick = e => {
+    console.log("click ", e);
+    this.setState({
+      current: e.key
+    });
+  };
+  render() {
+    return (
+      <Menu
+        onClick={this.handleClick}
+        selectedKeys={[this.state.current]}
+        mode="horizontal"
+      >
+        <Menu.Item>
+          <img src="/assets/dte.png" alt="logo" className="navLogo" />
+        </Menu.Item>
+      </Menu>
+    );
+  }
+}
 
 export default OrderFactoryComponent;
