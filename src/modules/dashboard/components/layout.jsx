@@ -6,7 +6,7 @@ import RouterConfig from "../router";
 const LayoutComponent = props => (
   <Layout>
     <Layout.Content>
-      <Row gutter={20}>
+      <Row>
         <Col span={24}>
           <HeaderNav />
           <RouterConfig />

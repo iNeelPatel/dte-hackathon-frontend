@@ -1,5 +1,5 @@
 .ant-layout {
-  background: #ffffff;
+  background: #fcfcfc;
 }
 
 .userLayout {
@@ -13,7 +13,6 @@
 }
 
 .header {
-  width: 100%;
   background: #fff;
   border-bottom: 1px solid #ddd;
 }
