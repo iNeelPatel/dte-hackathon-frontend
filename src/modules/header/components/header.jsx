@@ -15,7 +15,7 @@ const HeaderNav = props => {
       <MenuItem>
         <img src="/assets/dte.png" alt="DTE Logo" className="dte-logo-nav" />
       </MenuItem>
-      <Menu.Item>Dashboard</Menu.Item>
+      <Menu.Item key="/user/dashboard">Dashboard</Menu.Item>
       <Menu.Item key="/user/inwardOutwardRegister">
         Inward/Outward Register
       </Menu.Item>

@@ -1,6 +1,5 @@
 import React from "react";
 import { Layout, Row, Col } from "antd";
-import HeaderNav from "../../header/container/header";
 import RouterConfig from "../router";
 
 const LayoutComponent = props => (
@@ -8,7 +7,6 @@ const LayoutComponent = props => (
     <Layout.Content>
       <Row>
         <Col span={24}>
-          <HeaderNav />
           <RouterConfig />
         </Col>
       </Row>
