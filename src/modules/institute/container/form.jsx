@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { message, Form } from "antd";
 import Parse from "parse";
 
-import InstituteComponet from "../components/form";
+import InstituteFormComponent from "../components/form";
 
 class InstituteFormContainer extends Component {
   constructor(props) {
@@ -16,14 +16,12 @@ class InstituteFormContainer extends Component {
   }
 
   saveObject(query, values) {
-    query.set("text", values.text);
-    // check link here or throw error using message
-    if (this.ValidURL(values.link)) {
-      query.set("link", values.link);
-    } else {
-      message.error("link must be valid URL");
-      return;
-    }
+    query.set("code", values.code);
+    query.set("name", values.name);
+    query.set("type", values.type);
+    query.set("city", values.city);
+    query.set("zone", values.zone);
+
     query.set("user", Parse.User.current());
     if (!this.props.edit) {
       query.set("active", false);
@@ -31,13 +29,13 @@ class InstituteFormContainer extends Component {
 
     query
       .save()
-      .then(announcement => {
+      .then(institute => {
         this.setState({ loading: false, visible: false });
         this.props.form.resetFields();
         if (this.props.edit) {
-          this.props.handleChange.handleUpdate(announcement);
+          this.props.handleChange.handleUpdate(institute);
         } else {
-          this.props.handleChange.handleNew(announcement);
+          this.props.handleChange.handleNew(institute);
         }
       })
       .catch(error => message.error(error.message));
@@ -49,11 +47,11 @@ class InstituteFormContainer extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         if (this.props.edit) {
-          this.saveObject(this.props.announcement.parseObject, values);
+          this.saveObject(this.props.institute.parseObject, values);
         } else {
-          const AnnouncementClass = new Parse.Object.extend("Announcement");
-          const AnnouncementObject = new AnnouncementClass();
-          this.saveObject(AnnouncementObject, values);
+          const InstituteClass = new Parse.Object.extend("Institute");
+          const InstituteObject = new InstituteClass();
+          this.saveObject(InstituteObject, values);
         }
       }
     });
@@ -69,12 +67,12 @@ class InstituteFormContainer extends Component {
   }
 
   handleDelete() {
-    this.props.handleChange.handleDelete(this.props.announcement);
+    this.props.handleChange.handleDelete(this.props.Institute);
   }
 
   render() {
     return (
-      <InstituteComponet
+      <InstituteFormComponent
         getFieldsError={this.props.form.getFieldsError}
         isFieldTouched={this.props.form.isFieldTouched}
         getFieldError={this.props.form.getFieldError}
@@ -83,7 +81,7 @@ class InstituteFormContainer extends Component {
         visible={this.state.visible}
         loading={this.state.loading}
         handleDelete={this.handleDelete.bind(this)}
-        announcement={this.props.announcement}
+        institute={this.props.institute}
         edit={this.props.edit}
         toggleModal={this.toggleModal}
       />
