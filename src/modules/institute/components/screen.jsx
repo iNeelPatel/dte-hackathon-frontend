@@ -4,6 +4,7 @@ import "antd/dist/antd.css";
 import PageHeader from "ant-design-pro/lib/PageHeader";
 import "ant-design-pro/dist/ant-design-pro.css";
 import "./screen.css";
+import InstituteFormContainerWithForm from "../container/form";
 
 const InstituteComponent = props => {
   console.log(props);
@@ -14,7 +15,7 @@ const InstituteComponent = props => {
         logo={<Icon type="home" style={{ fontSize: "21px" }} />}
         action={
           <div>
-            <InstituteFormContainer />
+            <InstituteFormContainerWithForm />
           </div>
         }
       />
