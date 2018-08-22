@@ -1,25 +1,29 @@
 import React from "react";
-import {
-  Modal,
-  Form,
-  Row,
-  Col,
-  Input,
-  Button,
-  Popconfirm,
-  InputNumber,
-  Select
-} from "antd";
+import { Modal, Form, Row, Col, Input, Button, Popconfirm, Select } from "antd";
+
+const Option = Select.Option;
 
 const getOptions = (edit, values) => {
   return {
-    text: {
-      initialValue: edit ? values.text : undefined,
-      rules: [{ required: true, message: "Please input Text for Institute." }]
+    code: {
+      initialValue: edit ? values.code : undefined,
+      rules: [{ required: true, message: "Please input code of Institute." }]
     },
-    link: {
-      initialValue: edit ? values.link : undefined,
-      rules: [{ message: "Please input Institute Link" }]
+    name: {
+      initialValue: edit ? values.name : undefined,
+      rules: [{ required: true, message: "Please input name of Institute." }]
+    },
+    type: {
+      initialValue: edit ? values.type : undefined,
+      rules: [{ required: true, message: "Please input type of Institute." }]
+    },
+    city: {
+      initialValue: edit ? values.city : undefined,
+      rules: [{ required: true, message: "Please input city of Institute." }]
+    },
+    zone: {
+      initialValue: edit ? values.zone : undefined,
+      rules: [{ message: "Please input zone of Institute." }]
     }
   };
 };
@@ -28,8 +32,11 @@ const hasErrors = fieldsError =>
   Object.keys(fieldsError).some(field => fieldsError[field]);
 
 const InstituteFormComponent = props => {
-  const textError = props.isFieldTouched("text") && props.getFieldError("text");
-  const linkError = props.isFieldTouched("link") && props.getFieldError("link");
+  const codeError = props.isFieldTouched("text") && props.getFieldError("text");
+  const nameError = props.isFieldTouched("name") && props.getFieldError("name");
+  const typeError = props.isFieldTouched("type") && props.getFieldError("type");
+  const cityError = props.isFieldTouched("city") && props.getFieldError("city");
+  const zoneError = props.isFieldTouched("zone") && props.getFieldError("zone");
 
   return (
     <div>
@@ -78,28 +85,73 @@ const InstituteFormComponent = props => {
           <Col span={24}>
             <Form layout="vertical">
               <Row gutter={20}>
-                <Col span="24">
+                <Col span="4">
                   <Form.Item
-                    validateStatus={textError ? "error" : ""}
-                    help={textError || ""}
-                    label="Institute Text"
+                    validateStatus={codeError ? "error" : ""}
+                    help={codeError || ""}
+                    label="Institute Code"
                   >
                     {props.getFieldDecorator(
-                      "text",
-                      getOptions(props.edit, props.institute).text
-                    )(<Input placeholder="Text" />)}
+                      "code",
+                      getOptions(props.edit, props.institute).code
+                    )(<Input placeholder="Code" />)}
                   </Form.Item>
                 </Col>
-                <Col span="24">
+
+                <Col span="16">
                   <Form.Item
-                    validateStatus={linkError ? "error" : ""}
-                    help={linkError || ""}
-                    label="Institute Link"
+                    validateStatus={nameError ? "error" : ""}
+                    help={nameError || ""}
+                    label="Institute Name"
                   >
                     {props.getFieldDecorator(
-                      "link",
-                      getOptions(props.edit, props.institute).link
-                    )(<Input style={{ width: "100%" }} placeholder="Link" />)}
+                      "name",
+                      getOptions(props.edit, props.institute).name
+                    )(<Input placeholder="Name" />)}
+                  </Form.Item>
+                </Col>
+
+                <Col span="4">
+                  <Form.Item
+                    validateStatus={typeError ? "error" : ""}
+                    help={typeError || ""}
+                    label="Institute Type"
+                  >
+                    {props.getFieldDecorator(
+                      "type",
+                      getOptions(props.edit, props.institute).type
+                    )(
+                      <Select placeholder="Select">
+                        <Option value="SFI">SFI</Option>
+                        <Option value="GOVT">GOVT</Option>
+                      </Select>
+                    )}
+                  </Form.Item>
+                </Col>
+
+                <Col span="12">
+                  <Form.Item
+                    validateStatus={cityError ? "error" : ""}
+                    help={cityError || ""}
+                    label="Institute City"
+                  >
+                    {props.getFieldDecorator(
+                      "city",
+                      getOptions(props.edit, props.institute).city
+                    )(<Input placeholder="City" />)}
+                  </Form.Item>
+                </Col>
+
+                <Col span="12">
+                  <Form.Item
+                    validateStatus={zoneError ? "error" : ""}
+                    help={zoneError || ""}
+                    label="Institute Zone"
+                  >
+                    {props.getFieldDecorator(
+                      "zone",
+                      getOptions(props.edit, props.institute).zone
+                    )(<Input placeholder="Zone" />)}
                   </Form.Item>
                 </Col>
               </Row>

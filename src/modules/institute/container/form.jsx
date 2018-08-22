@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { message, Form } from "antd";
-import PropTypes from "prop-types";
 import Parse from "parse";
 
 import InstituteComponet from "../components/form";
