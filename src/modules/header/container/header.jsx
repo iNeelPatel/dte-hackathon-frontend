@@ -16,6 +16,15 @@ class HeaderContainer extends Component {
       route
     };
     this.handleNavigate = this.handleNavigate.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  handleLogout() {
+    Parse.User.logOut()
+      .then(() => {
+        this.props.dispatch(routerRedux.push({ pathname: "/" }));
+      })
+      .catch(error => message.error(error.message));
   }
 
   componentDidUpdate(prevProps) {
@@ -47,6 +56,7 @@ class HeaderContainer extends Component {
       <HeaderNav
         handleNavigate={this.handleNavigate}
         selectedRoute={this.state.route}
+        handleLogout={this.handleLogout}
       />
     );
   }

@@ -3,6 +3,7 @@ import { Layout, Icon, Row, Col, Table } from "antd";
 import "antd/dist/antd.css";
 import PageHeader from "ant-design-pro/lib/PageHeader";
 import "ant-design-pro/dist/ant-design-pro.css";
+<<<<<<< HEAD
 import "./screen.css";
 
 import InstituteFormContainer from "../container/form";
@@ -37,6 +38,9 @@ const getColumns = () => [
   //   )
   // }
 ];
+=======
+import InstituteFormContainerWithForm from "../container/form";
+>>>>>>> 3a8998463cfa9590a9ba0be32b30db49ddb97605
 
 const InstituteComponent = props => {
   console.log(props);
@@ -44,7 +48,7 @@ const InstituteComponent = props => {
     <Layout className="mr-15">
       <PageHeader
         title="Institute"
-        logo={<Icon type="home" style={{ fontSize: "21px" }} />}
+        logo={<Icon type="solution" style={{ fontSize: "21px" }} />}
         action={
           <div>
             <InstituteFormContainer />
