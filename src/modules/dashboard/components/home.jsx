@@ -1,22 +1,17 @@
 import React from "react";
-import { Breadcrumb, Icon, Button } from "antd";
+import { Icon, Layout } from "antd";
+import PageHeader from "ant-design-pro/lib/PageHeader";
+import "ant-design-pro/dist/ant-design-pro.css";
 import "antd/dist/antd.css";
 
 const OrderFactoryComponent = props => (
   <div>
-    <Breadcrumb>
-      <Breadcrumb.Item href="/user/dashboard">
-        <Icon type="home" />
-      </Breadcrumb.Item>
-      <Breadcrumb.Item>
-        <Icon type="user" />
-        <span>Dashboard</span>
-        <br />
-        <Button onClick={props.handleLogout} type="danger">
-          Logout
-        </Button>
-      </Breadcrumb.Item>
-    </Breadcrumb>
+    <Layout className="mr-15">
+      <PageHeader
+        title="Dashboard"
+        logo={<Icon type="dashboard" style={{ fontSize: "21px" }} />}
+      />
+    </Layout>
   </div>
 );
 
