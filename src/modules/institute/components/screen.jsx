@@ -11,7 +11,8 @@ const getColumns = (handleUpdate, handleDelete) => [
   {
     title: "Code",
     dataIndex: "code",
-    key: "code"
+    key: "code",
+    sorter: (a, b) => parseInt(a.code) - parseInt(b.code)
   },
 
   {
@@ -22,7 +23,10 @@ const getColumns = (handleUpdate, handleDelete) => [
   {
     title: "Type",
     dataIndex: "type",
-    key: "type"
+    key: "type",
+    filters: [{ text: "SFI", value: "SFI" }, { text: "GOVT", value: "GOVT" }],
+
+    onFilter: (value, record) => record.type.includes(value)
   },
 
   {
@@ -71,7 +75,11 @@ const InstituteComponent = props => {
               dataSource={props.institutes}
               bordered
               loading={props.loading}
-              columns={getColumns(props.handleUOdate, props.handleDelete)}
+              columns={getColumns(
+                props.institutes,
+                props.handleUOdate,
+                props.handleDelete
+              )}
               key={props.institutes.key}
             />
           </Col>
