@@ -21,16 +21,15 @@ const HeaderNav = props => {
         Inward/Outward Register
       </Menu.Item>
       <Menu.Item key="/user/institute">Institute</Menu.Item>
-      <SubMenu title="Settings" className="dte-logout-right">
+      <SubMenu title="Settings" className="dte-logout-right">  
         <Menu.Item key="logout">  
           <span onClick={props.handleLogout} type="danger">
-          <Icon type="poweroff"/>
+            <Icon type="poweroff"/>
             Logout
           </span>
         </Menu.Item>
       </SubMenu>
-      
-      
+      <span className="dte-logout-right"><Icon type="setting" style={{ fontSize: 16 , marginRight:'-20px' }} ></Icon></span>
     </Menu>
   );
 };
