@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Button , Icon } from "antd";
+import { Menu, Button, Icon } from "antd";
 import "./header.css";
 import "antd/dist/antd.css";
 import MenuItem from "antd/lib/menu/MenuItem";
@@ -21,15 +21,22 @@ const HeaderNav = props => {
         Inward/Outward Register
       </Menu.Item>
       <Menu.Item key="/user/institute">Institute</Menu.Item>
-      <SubMenu title="Settings" className="dte-logout-right">  
-        <Menu.Item key="logout">  
+
+      <SubMenu
+        title={
+          <span>
+            <Icon type="setting" /> Setting
+          </span>
+        }
+        className="dte-setting-right"
+      >
+        <Menu.Item key="logout">
           <span onClick={props.handleLogout} type="danger">
-            <Icon type="poweroff"/>
+            <Icon type="poweroff" />
             Logout
           </span>
         </Menu.Item>
       </SubMenu>
-      <span className="dte-logout-right"><Icon type="setting" style={{ fontSize: 16 , marginRight:'-20px' }} ></Icon></span>
     </Menu>
   );
 };

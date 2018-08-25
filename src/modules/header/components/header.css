@@ -1,13 +1,13 @@
 .dte-logo-nav {
-    width: 35px;
-    cursor: pointer;
+  width: 35px;
+  cursor: pointer;
 }
 
 .nav {
-    display: initial;
-    float: right;
+  display: initial;
+  float: right;
 }
-
-.dte-logout-right{
-    float: right !important;
+.dte-setting-right {
+  float: right !important;
+  padding: 0 30px;
 }
