@@ -45,7 +45,7 @@ class InstituteContainer extends Component {
           parseObject: institute,
           ...institute.toJSON()
         }
-      ]
+      ].reverse()
     });
   }
 
