@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Button } from "antd";
+import { Menu, Button , Icon } from "antd";
 import "./header.css";
 import "antd/dist/antd.css";
 import MenuItem from "antd/lib/menu/MenuItem";
@@ -22,12 +22,15 @@ const HeaderNav = props => {
       </Menu.Item>
       <Menu.Item key="/user/institute">Institute</Menu.Item>
       <SubMenu title="Settings" className="dte-logout-right">
-        <Menu.Item key="logout">
+        <Menu.Item key="logout">  
           <span onClick={props.handleLogout} type="danger">
+          <Icon type="poweroff"/>
             Logout
           </span>
         </Menu.Item>
       </SubMenu>
+      
+      
     </Menu>
   );
 };
