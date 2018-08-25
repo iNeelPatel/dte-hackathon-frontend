@@ -29,13 +29,13 @@ class InstituteFormContainer extends Component {
 
     query
       .save()
-      .then(institute => {
+      .then(Institute => {
         this.setState({ loading: false, visible: false });
         this.props.form.resetFields();
         if (this.props.edit) {
-          this.props.handleChange.handleUpdate(institute);
+          this.props.handleChange.handleUpdate(Institute);
         } else {
-          this.props.handleChange.handleNew(institute);
+          this.props.handleChange.handleNew(Institute);
         }
       })
       .catch(error => message.error(error.message));
