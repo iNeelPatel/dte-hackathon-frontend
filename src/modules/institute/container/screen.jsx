@@ -17,6 +17,10 @@ class InstituteContainer extends Component {
   }
 
   componentDidMount() {
+    this.fetchInstitutes();
+  }
+
+  fetchInstitutes() {
     const instituteQuery = new Parse.Query("Institute");
     this.setState({ loading: true });
 
@@ -79,6 +83,35 @@ class InstituteContainer extends Component {
       .catch(error => message.error(error.message));
   }
 
+  searchInstitutes(value) {
+    if (value === "") {
+      this.fetchInstitutes();
+    } else {
+      const instituteQuery = new Parse.Query("Institute");
+
+      value[0] == "#"
+        ? instituteQuery.contains("code", value.slice(1).toUpperCase())
+        : instituteQuery.contains("name", value.toUpperCase());
+
+      instituteQuery
+        .find()
+        .then(institutes => {
+          console.log(institutes);
+          const instituteObjects = institutes.map(institute => {
+            return {
+              id: institute.id,
+              parseObject: institute,
+              key: institute.id,
+              ...institute.toJSON()
+            };
+          });
+
+          this.setState({ loading: false, institutes: instituteObjects });
+        })
+        .catch(error => error.message(message.error));
+    }
+  }
+
   render() {
     return (
       <InstituteScreenComponet
@@ -87,6 +120,7 @@ class InstituteContainer extends Component {
         handleNew={this.handleNew.bind(this)}
         handleUpdate={this.handleUpdate.bind(this)}
         handleDelete={this.handleDelete.bind(this)}
+        searchInstitutes={this.searchInstitutes.bind(this)}
       />
     );
   }
