@@ -21,7 +21,7 @@ const HeaderNav = props => {
         Inward/Outward Register
       </Menu.Item>
       <Menu.Item key="/user/institute">Institute</Menu.Item>
-      <SubMenu title="Settings">
+      <SubMenu title="Settings" className="dte-logout-right">
         <Menu.Item key="logout">
           <span onClick={props.handleLogout} type="danger">
             Logout
