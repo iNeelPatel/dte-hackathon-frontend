@@ -38,3 +38,7 @@
 .mr-15 {
   padding: 25px 15px;
 }
+
+.ant-table-wrapper {
+  background: #fff;
+}
