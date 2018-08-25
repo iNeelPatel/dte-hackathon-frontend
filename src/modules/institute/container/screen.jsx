@@ -11,7 +11,7 @@ class InstituteContainer extends Component {
     super(props);
 
     this.state = {
-      laoding: true,
+      laoding: false,
       institutes: []
     };
   }
@@ -35,12 +35,58 @@ class InstituteContainer extends Component {
       })
       .catch(error => message.error(error.message()));
   }
+  handleNew(institute) {
+    this.setState({
+      institutes: [
+        ...this.state.institutes,
+        {
+          id: institute.id,
+          key: institute.id,
+          parseObject: institute,
+          ...institute.toJSON()
+        }
+      ]
+    });
+  }
+
+  handleUpdate(institute) {
+    const updatedInstitute = this.state.institutes.map(instituteS => {
+      if (instituteS.id === institute.id) {
+        return {
+          id: institute.id,
+          key: institute.id,
+          parseObject: institute,
+          ...institute.toJSON(),
+          edit: instituteS.edit
+        };
+      } else {
+        return instituteS;
+      }
+    });
+
+    this.setState({ institutes: updatedInstitute });
+  }
+
+  handleDelete(institute) {
+    institute.parseObject
+      .destroy()
+      .then(institute => {
+        const updatedInstitute = this.state.institutes.filter(instituteS => {
+          return instituteS.id !== institute.id;
+        });
+        this.setState({ institutes: updatedInstitute });
+      })
+      .catch(error => message.error(error.message));
+  }
 
   render() {
     return (
       <InstituteScreenComponet
         institutes={this.state.institutes}
         loading={this.state.loading}
+        handleNew={this.handleNew.bind(this)}
+        handleUpdate={this.handleUpdate.bind(this)}
+        handleDelete={this.handleDelete.bind(this)}
       />
     );
   }

@@ -3,6 +3,7 @@ import { Menu, Button } from "antd";
 import "./header.css";
 import "antd/dist/antd.css";
 import MenuItem from "antd/lib/menu/MenuItem";
+import SubMenu from "antd/lib/menu/SubMenu";
 
 const HeaderNav = props => {
   console.log(props);
@@ -12,19 +13,21 @@ const HeaderNav = props => {
       mode="horizontal"
       selectedKeys={[props.selectedRoute]}
     >
-      <MenuItem>
+      <Menu.Item>
         <img src="/assets/dte.png" alt="DTE Logo" className="dte-logo-nav" />
-      </MenuItem>
+      </Menu.Item>
       <Menu.Item key="/user/dashboard">Dashboard</Menu.Item>
       <Menu.Item key="/user/inwardOutwardRegister">
         Inward/Outward Register
       </Menu.Item>
       <Menu.Item key="/user/institute">Institute</Menu.Item>
-      <span style={{ float: "right", margin: "0 10px 0 0" }}>
-        <Button onClick={props.handleLogout} type="danger">
-          Logout
-        </Button>
-      </span>
+      <SubMenu title="Settings">
+        <Menu.Item key="logout">
+          <span onClick={props.handleLogout} type="danger">
+            Logout
+          </span>
+        </Menu.Item>
+      </SubMenu>
     </Menu>
   );
 };

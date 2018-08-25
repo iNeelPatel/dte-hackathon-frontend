@@ -34,8 +34,10 @@ class InstituteFormContainer extends Component {
         this.props.form.resetFields();
         if (this.props.edit) {
           this.props.handleChange.handleUpdate(institute);
+          message.success("Institute Updated Successfuly");
         } else {
           this.props.handleChange.handleNew(institute);
+          message.success("Institute Added Successfuly");
         }
       })
       .catch(error => message.error(error.message));
@@ -67,7 +69,8 @@ class InstituteFormContainer extends Component {
   }
 
   handleDelete() {
-    this.props.handleChange.handleDelete(this.props.Institute);
+    this.props.handleChange.handleDelete(this.props.institute);
+    message.success("Institute Removed Successfully");
   }
 
   render() {
