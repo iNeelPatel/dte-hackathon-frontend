@@ -37,7 +37,7 @@ class InstituteContainer extends Component {
           }))
         });
       })
-      .catch(error => message.error(error.message()));
+      .catch(error => message.error(error.message));
   }
   handleNew(institute) {
     this.setState({
