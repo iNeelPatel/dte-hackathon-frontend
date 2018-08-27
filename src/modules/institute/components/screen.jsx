@@ -75,11 +75,7 @@ const InstituteComponent = props => {
               dataSource={props.institutes}
               bordered
               loading={props.loading}
-              columns={getColumns(
-                props.institutes,
-                props.handleUOdate,
-                props.handleDelete
-              )}
+              columns={getColumns(props.handleUpdate, props.handleDelete)}
               key={props.institutes.key}
             />
           </Col>
