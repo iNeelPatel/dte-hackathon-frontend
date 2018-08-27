@@ -4,7 +4,7 @@ import { message } from "antd";
 import { routerRedux } from "dva/router";
 import Parse from "parse";
 
-import InstituteScreenComponet from "../components/screen";
+import InstituteScreenComponent from "../components/screen";
 
 class InstituteContainer extends Component {
   constructor(props) {
@@ -114,7 +114,7 @@ class InstituteContainer extends Component {
 
   render() {
     return (
-      <InstituteScreenComponet
+      <InstituteScreenComponent
         institutes={this.state.institutes}
         loading={this.state.loading}
         handleNew={this.handleNew.bind(this)}
