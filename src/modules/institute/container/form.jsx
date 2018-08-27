@@ -16,11 +16,11 @@ class InstituteFormContainer extends Component {
   }
 
   saveObject(query, values) {
-    query.set("code", values.code);
-    query.set("name", values.name);
-    query.set("type", values.type);
-    query.set("city", values.city);
-    query.set("zone", values.zone);
+    query.set("code", values.code.toUpperCase());
+    query.set("name", values.name.toUpperCase());
+    query.set("type", values.type.toUpperCase());
+    query.set("city", values.city.toUpperCase());
+    query.set("zone", values.zone.toUpperCase());
 
     query.set("user", Parse.User.current());
     if (!this.props.edit) {
