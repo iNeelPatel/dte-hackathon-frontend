@@ -16,7 +16,7 @@ class InstituteFormContainer extends Component {
   }
 
   saveObject(query, values) {
-    query.set("code", values.code.toUpperCase()));
+    query.set("code", values.code.toUpperCase());
     query.set("name", values.name.toUpperCase());
     query.set("type", values.type.toUpperCase());
     query.set("city", values.city.toUpperCase());

@@ -5,6 +5,7 @@
   "dependencies": {
     "ant-design-pro": "^1.4.4",
     "antd": "^3.8.2",
+    "create-react-app": "^1.5.2",
     "dotenv": "^6.0.0",
     "dva": "^2.4.0",
     "parse": "^2.0.1",
