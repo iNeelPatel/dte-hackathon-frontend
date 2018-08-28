@@ -32,6 +32,7 @@ const hasErrors = fieldsError =>
   Object.keys(fieldsError).some(field => fieldsError[field]);
 
 const InstituteFormComponent = props => {
+  console.log(props);
   const codeError = props.isFieldTouched("text") && props.getFieldError("text");
   const nameError = props.isFieldTouched("name") && props.getFieldError("name");
   const typeError = props.isFieldTouched("type") && props.getFieldError("type");
