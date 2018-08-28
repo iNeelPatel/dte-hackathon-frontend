@@ -25,28 +25,26 @@ const HeaderNav = props => {
       <SubMenu
         title={
           <span>
-            <Icon type="setting" style={{ fontSize: 16 }} />Settings
+            <Icon type="setting" style={{ fontSize: 16 }} />
+            Settings
           </span>
         }
         className="dte-setting-right"
       >
-      <Menu
-        mode="verticle"
-      >
-        <Menu.Item key="/user/profile">
-          <span>
-            <Icon type="profile" />
-            Profile
-          </span>
-        </Menu.Item>
-        <Menu.Item key="logout">
-          <span onClick={props.handleLogout} type="danger">
-            <Icon type="poweroff" />
-            Logout
-          </span>
-        </Menu.Item>
-      </Menu>
-        
+        <Menu mode="verticle">
+          <Menu.Item key="/user/profile">
+            <span>
+              <Icon type="user" />
+              Profile
+            </span>
+          </Menu.Item>
+          <Menu.Item key="logout">
+            <span onClick={props.handleLogout} type="danger">
+              <Icon type="poweroff" />
+              Logout
+            </span>
+          </Menu.Item>
+        </Menu>
       </SubMenu>
     </Menu>
   );
